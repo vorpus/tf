@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
 import tensorflow as tf
 # NumPy is often used to load, manipulate and preprocess data.
 import numpy as np

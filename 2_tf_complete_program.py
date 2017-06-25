@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
 import numpy as np
 import tensorflow as tf
 
@@ -22,7 +25,9 @@ sess = tf.Session()
 sess.run(init) # reset values to wrong
 for i in range(1000):
   sess.run(train, {x:x_train, y:y_train})
+  curr_W, curr_b, curr_loss = sess.run([W, b, loss], {x:x_train, y:y_train})
+  print("W: %s b: %s loss: %s"%(curr_W, curr_b, curr_loss))
 
 # evaluate training accuracy
-curr_W, curr_b, curr_loss = sess.run([W, b, loss], {x:x_train, y:y_train})
-print("W: %s b: %s loss: %s"%(curr_W, curr_b, curr_loss))
+# curr_W, curr_b, curr_loss = sess.run([W, b, loss], {x:x_train, y:y_train})
+# print("W: %s b: %s loss: %s"%(curr_W, curr_b, curr_loss))
